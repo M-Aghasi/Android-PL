@@ -1,12 +1,12 @@
 package com.aghasi.androidpl.algorithms.sorting;
 
 
-import com.aghasi.androidpl.algorithms.CallCountingComparator;
+import com.aghasi.androidpl.algorithms.comparators.CallCountingComparator;
+import com.aghasi.androidpl.algorithms.comparators.NaturalComparator;
 
 import junit.framework.TestCase;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
  public class ListSorterCallCountingTest extends TestCase {
@@ -21,7 +21,7 @@ import java.util.List;
     protected void setUp() throws Exception {
 
         super.setUp();
-        _comparator = new CallCountingComparator(Comparator.<Integer>naturalOrder());
+        _comparator = new CallCountingComparator(NaturalComparator.INSTANCE);
 
         fillSortedList();
         fillReverseList();
@@ -65,20 +65,20 @@ import java.util.List;
         printComparatorCallsReport();
     }
 
-//    public void testWorstCaseShellsort() {
-//        new ShellsortListSorter(_comparator).sort(_reverseArrayList);
-//        reportCalls();
-//    }
-//
-//    public void testWorstCaseQuicksort() {
-//        new QuicksortListSorter(_comparator).sort(_reverseArrayList);
-//        reportCalls();
-//    }
-//
-//    public void testWorstCaseMergesort() {
-//        new MergesortListSorter(_comparator).sort(_reverseArrayList);
-//        reportCalls();
-//    }
+    public void testWorstCaseShellsort() {
+        new ShellSortListSorter(_comparator).sort(_reverseArrayList);
+        printComparatorCallsReport();
+    }
+
+    public void testWorstCaseQuicksort() {
+        new QuickSortListSorter(_comparator).sort(_reverseArrayList);
+        printComparatorCallsReport();
+    }
+
+    public void testWorstCaseMergesort() {
+        new MergeSortListSorter(_comparator).sort(_reverseArrayList);
+        printComparatorCallsReport();
+    }
 
     public void testBestCaseBubblesort() {
         new BubbleSortListSorter(_comparator).sort(_sortedArrayList);
@@ -95,20 +95,20 @@ import java.util.List;
         printComparatorCallsReport();
     }
 
-//    public void testBestCaseShellsort() {
-//        new ShellsortListSorter(_comparator).sort(_sortedArrayList);
-//        reportCalls();
-//    }
-//
-//    public void testBestCaseQuicksort() {
-//        new QuicksortListSorter(_comparator).sort(_sortedArrayList);
-//        reportCalls();
-//    }
-//
-//    public void testBestCaseMergesort() {
-//        new MergesortListSorter(_comparator).sort(_sortedArrayList);
-//        reportCalls();
-//    }
+    public void testBestCaseShellsort() {
+        new ShellSortListSorter(_comparator).sort(_sortedArrayList);
+        printComparatorCallsReport();
+    }
+
+    public void testBestCaseQuicksort() {
+        new QuickSortListSorter(_comparator).sort(_sortedArrayList);
+        printComparatorCallsReport();
+    }
+
+    public void testBestCaseMergesort() {
+        new MergeSortListSorter(_comparator).sort(_sortedArrayList);
+        printComparatorCallsReport();
+    }
 
     public void testAverageCaseBubblesort() {
         new BubbleSortListSorter(_comparator).sort(_randomArrayList);
@@ -125,20 +125,20 @@ import java.util.List;
         printComparatorCallsReport();
     }
 
-//    public void testAverageCaseShellsort() {
-//        new ShellsortListSorter(_comparator).sort(_randomArrayList);
-//        reportCalls();
-//    }
-//
-//    public void testAverageCaseQuicksort() {
-//        new QuicksortListSorter(_comparator).sort(_randomArrayList);
-//        reportCalls();
-//    }
-//
-//    public void testAverageCaseMergeSort() {
-//        new MergesortListSorter(_comparator).sort(_randomArrayList);
-//        reportCalls();
-//    }
+    public void testAverageCaseShellsort() {
+        new ShellSortListSorter(_comparator).sort(_randomArrayList);
+        printComparatorCallsReport();
+    }
+
+    public void testAverageCaseQuicksort() {
+        new QuickSortListSorter(_comparator).sort(_randomArrayList);
+        printComparatorCallsReport();
+    }
+
+    public void testAverageCaseMergeSort() {
+        new MergeSortListSorter(_comparator).sort(_randomArrayList);
+        printComparatorCallsReport();
+    }
 
     private void printComparatorCallsReport() {
         System.out.println(getName() + ": " + _comparator.getCallCount() + " calls");

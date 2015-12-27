@@ -1,4 +1,4 @@
-package com.aghasi.androidpl.algorithms;
+package com.aghasi.androidpl.algorithms.comparators;
 
 
 import java.util.Comparator;

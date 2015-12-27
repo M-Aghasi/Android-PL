@@ -1,5 +1,7 @@
 package com.aghasi.androidpl.algorithms.sorting;
 
+import com.aghasi.androidpl.algorithms.comparators.NaturalComparator;
+
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
@@ -71,7 +73,7 @@ import java.util.List;
 
 
     public void testListSorterCanSortSampleList() {
-        ListSorter sorter = createListSorter(Comparator.<String>naturalOrder());
+        ListSorter sorter = createListSorter(NaturalComparator.INSTANCE);
         assertEquals(_sortedList, sorter.sort(_unsortedList));
     }
 
