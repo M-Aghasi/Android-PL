@@ -65,6 +65,11 @@ import java.util.List;
         printComparatorCallsReport();
     }
 
+     public void testWorstCaseBinaryInsertionSort() {
+         new BinaryInsertionSortListSorter(_comparator).sort(_reverseArrayList);
+         printComparatorCallsReport();
+     }
+
     public void testWorstCaseShellsort() {
         new ShellSortListSorter(_comparator).sort(_reverseArrayList);
         printComparatorCallsReport();
@@ -95,6 +100,11 @@ import java.util.List;
         printComparatorCallsReport();
     }
 
+     public void testBestCaseBinaryInsertionSort() {
+         new BinaryInsertionSortListSorter(_comparator).sort(_sortedArrayList);
+         printComparatorCallsReport();
+     }
+
     public void testBestCaseShellsort() {
         new ShellSortListSorter(_comparator).sort(_sortedArrayList);
         printComparatorCallsReport();
@@ -124,6 +134,11 @@ import java.util.List;
         new InsertionSortListSorter(_comparator).sort(_randomArrayList);
         printComparatorCallsReport();
     }
+
+     public void testAverageCaseBinaryInsertionSort() {
+         new BinaryInsertionSortListSorter(_comparator).sort(_randomArrayList);
+         printComparatorCallsReport();
+     }
 
     public void testAverageCaseShellsort() {
         new ShellSortListSorter(_comparator).sort(_randomArrayList);
