@@ -1,15 +1,16 @@
 package com.aghasi.androidpl.mvvm;
 
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Observable;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.Map;
-import java.util.Set;
 
 
 public class PageStateObservable {
 
-    private Set<PageStateObserver> _observers = new HashSet<>();
-    private Map<String, Object> _statPairs = new HashMap<>();
+    private List<PageStateObserver> _observers = new ArrayList<>();
+    private Map<String, Object> _statPairs = new ConcurrentHashMap<>();
 
     private final String[] STAT_KEYS;
 
@@ -20,7 +21,13 @@ public class PageStateObservable {
 
     public void addObserver(PageStateObserver observer) {
 
-        _observers.add(observer);
+        if (observer == null) {
+            throw new NullPointerException("observer == null");
+        }
+        synchronized (this) {
+            if (!_observers.contains(observer))
+                _observers.add(observer);
+        }
     }
 
     public void deleteObserver(PageStateObserver observer) {
@@ -28,7 +35,7 @@ public class PageStateObservable {
         _observers.remove(observer);
     }
 
-    private void notifyObservers(String key) {
+    private void notifyObservers(String key) {new Observable();
 
         for (PageStateObserver observer :
                 _observers) {
@@ -37,7 +44,7 @@ public class PageStateObservable {
         }
     }
 
-    public void putStat(String key, Object value) {
+    synchronized public void putStat(String key, Object value) {
 
         if(!isKeyValid(key)) {
             throw new IllegalArgumentException("key parameter doesn't exist in page stats list.");
