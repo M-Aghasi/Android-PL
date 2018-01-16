@@ -11,4 +11,4 @@ here is a complete list of all modules exist in Android-PL with short descriptio
     I tried to avoid redundancy, and only added algorithms and data structures which doesn't exist in Java and android standard libraries(i hope!).
     
 * ### [Android MVVM](mvvm/README.md)
-    This module was a inital draft for implementing mvvm in Android that I wrote a long time ago and unfortunately has been discontinued.
+    This module was a initial draft for implementing mvvm in Android that I wrote a long time ago and unfortunately has been discontinued.
